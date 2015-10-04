@@ -1,5 +1,5 @@
 {
-    "name": "vendor/server-browser",
+    "name": "Darkling/localhostBrowser",
     "description": "Simple localhost file browser.",
     "authors": [
         {
