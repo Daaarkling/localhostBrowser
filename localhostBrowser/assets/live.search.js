@@ -19,10 +19,8 @@ $(document).ready(function () {
 						url: URL,
 						cache: false,
 						type: "GET",
-						success: function (response) {
-							
+						success: function (response) {							
 							$("#result").html(response);
-							console.log(response);
 						}
 					});
 					
