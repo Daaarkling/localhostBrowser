@@ -1,6 +1,6 @@
 {
     "name": "vendor/server-browser",
-    "description": "Simple server file browser.",
+    "description": "Simple localhost file browser.",
     "authors": [
         {
             "name": "Jan Vanura",
