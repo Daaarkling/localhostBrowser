@@ -8,6 +8,8 @@
         }
     ],
     "require": {
-        "nette/finder": "dev-master"
-    }
+        "php": ">=7.1",
+        "nette/finder": "^3.0"
+    },
+	"minimum-stability": "dev"
 }

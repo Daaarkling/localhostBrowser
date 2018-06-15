@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-	var delay = (function () {
+	const delay = (function () {
 		var timer = 0;
 		return function (callback, ms) {
 			clearTimeout(timer);
@@ -8,23 +8,22 @@ $(document).ready(function () {
 		};
 	})();
 
-	var searchInput = $("#search");
+	const searchInput = $("#search");
 
 	searchInput.keyup(
-			function () {
-				delay(function () {	
-					var keyword = searchInput.val();
-					var URL = encodeURI("index.php?search=" + keyword);
-					$.ajax({
-						url: URL,
-						cache: false,
-						type: "GET",
-						success: function (response) {							
-							$("#result").html(response);
-						}
-					});
-					
-				}, 200);
-			}
+		function () {
+			delay(function () {
+				const keyword = searchInput.val();
+				const URL = encodeURI("index.php?search=" + keyword);
+				$.ajax({
+					url: URL,
+					cache: false,
+					type: "GET",
+					success: function (response) {
+						$("#result").html(response);
+					}
+				});
+			}, 200);
+		}
 	);
 });

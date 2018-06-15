@@ -7,16 +7,16 @@ use Nette\Utils\Finder;
 
 /**
  * Thank you Nette Framework
- * https://api.nette.org/2.1.11/source-Templating.Helpers.php.html
- * 
+ *
  * Converts to human readable file size.
  * @param  int
  * @param  int
  * @return string
  */
-function bytes($bytes, $precision = 2) {
+function bytes($bytes, $precision = 2)
+{
 	$bytes = round($bytes);
-	$units = array('B', 'kB', 'MB', 'GB', 'TB', 'PB');
+	$units = ['B', 'kB', 'MB', 'GB', 'TB', 'PB'];
 	foreach ($units as $unit) {
 		if (abs($bytes) < 1024 || $unit === end($units)) {
 			break;
@@ -28,19 +28,16 @@ function bytes($bytes, $precision = 2) {
 
 //----------------------------------------------------------
 
-
 $basePath = substr(str_replace('\\', '/', realpath(dirname(__FILE__))), strlen(str_replace('\\', '/', realpath(filter_input(INPUT_SERVER, 'DOCUMENT_ROOT')))));
 
-
 isset($searchPath) ?: $searchPath = '../';
-$search = filter_input(INPUT_GET, 'search', FILTER_SANITIZE_STRING);
+$search = (string) filter_input(INPUT_GET, 'search', FILTER_SANITIZE_STRING);
 
-$searchEnch = NULL;
 if ($search) {
-	$searchEnch = $search . '*';
+	$search .= '*';
 }
 
-$files = Finder::find($searchEnch)->in($searchPath);
+$files = Finder::find($search)->in($searchPath);
 
 ob_start();
 ?>
@@ -70,10 +67,8 @@ ob_start();
 <?php
 $result = ob_get_clean();
 
-
 // is AJAX?
 if (strtolower(filter_input(INPUT_SERVER, 'HTTP_X_REQUESTED_WITH')) === 'xmlhttprequest') {
-	
 	echo $result;
 	exit(0);
 }

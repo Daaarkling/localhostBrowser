@@ -1,4 +1,4 @@
-nbproject/*
+.idea/*
 vendor/*
 !.gitignore
 composer.lock
